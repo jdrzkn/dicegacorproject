@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/shoppe-demo-site-icon.png">
+  <title>shoppe demo</title>
+</head>
+<body>
+    <title>Proyek Infor GACOR🤑🤑</title>
+    <style>
+
+
+.container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px;
+            font-family: 'dolmenregular';
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            font-family: 'dolmenregular';
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-size: 2em;
+            color: #333;
+            margin-top: 10px;
+        }
+
+
+        #popupWarning {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ff1744;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            font-family: 'DolmenRegular', Arial, sans-serif;
+            font-size: 20px;
+        }
+        
+        #closeWarning {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #ffffff;
+            color: #ff1744;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+      <div class="main-flex">
+        <div id="center-selector">
+          <div id="main-circle" class="rotating border-tops"></div>
+          <div id="main-circle-top">
+            <div id="text-container">
+              <div id="home-text">
+                <p><span class="ferrite-medium">simulasi lempar dadu</span></p>
+                <p><span class="ferrite-light">dari C++ ke website</span></p>
+              </div>
+
+              
+<div class="container">
+    <h1>Lempar Dadu Anda!!!</h1>
+    <button class="button" onclick="rollDice()">Lempar Dadu</button>
+    <button class="button" onclick="exitApp()">Selesai</button>
+    <div id="result">🎲</div>
+</div>
+
+<div id="popupWarning">
+    <p>wow, anda sudah 10 kali melempar dadu!!! 😱😱</p>
+    <button id="closeWarning" onclick="closeWarning()">lanjut dong</button>
+</div>
+
+<audio id="diceSound" src="sounds/i-cant-stop-winning.mp3"></audio>
+<audio id="quit" src="sounds/aw-dangit.mp3"></audio>
+
+<script>
+    let rollCount = 0;
+
+    function rollDice() {
+        rollCount++;
+        
+        const audio = document.getElementById("diceSound");
+        audio.currentTime = 0;
+        audio.play();
+
+        const result = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("result").innerHTML = "Hasil: " + result;
+
+        if (rollCount >= 10) {
+            document.getElementById("popupWarning").style.display = "block";
+            rollCount = 0;
+        }
+    }
+
+    function closeWarning() {
+        document.getElementById("popupWarning").style.display = "none";
+    }
+
+    function exitApp() {
+        const audio = document.getElementById("quit");
+        audio.currentTime = 0;
+        audio.play();
+        document.getElementById("result").innerHTML = "😡";
+    }
+</script>
+
+</body>
+</html>

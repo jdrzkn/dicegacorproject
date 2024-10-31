@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Dadu Informatika</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1e90ff, #00c853);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+
+        h1 {
+            color: #004d40;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            padding: 12px 25px;
+            font-size: 18px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #3534ff, #00c853);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #diceResultPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: popUp 0.5s ease-out;
+        }
+
+        #diceResultPopup h2 {
+            color: #00796b;
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #closePopup {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #004d40;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lempar Dadu untuk Mendapatkan Angka</h1>
+    <button class="button" onclick="rollDice()">Lempar Dadu</button>
+    <button class="button" onclick="exitApp()">Selesai</button>
+</div>
+
+<div id="diceResultPopup">
+    <h2 id="diceResult">0</h2>
+    <button id="closePopup" onclick="closePopup()">Tutup</button>
+</div>
+
+<script>
+    function rollDice() {
+        const result = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("diceResult").textContent = result;
+        document.getElementById("diceResultPopup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("diceResultPopup").style.display = "none";
+    }
+
+    function exitApp() {
+        alert("terimakasih sudah mencoba :D");
+    }
+</script>
+
+</body>
+</html>
