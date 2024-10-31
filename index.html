@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dice Generator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #00796b;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #00796b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #004d40;
+        }
+
+        #result {
+            font-size: 36px;
+            color: #00796b;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Random Dice Generator</h1>
+    <div id="result">🎲</div>
+    <button class="button" onclick="rollDice()">Lempar Dadu</button>
+    <button class="button" onclick="exitApp()">Keluar</button>
+</div>
+
+<script>
+    function rollDice() {
+        const result = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function exitApp() {
+        alert("Terima kasih telah menggunakan aplikasi Random Dice Generator!");
+    }
+</script>
+
+</body>
+</html>
